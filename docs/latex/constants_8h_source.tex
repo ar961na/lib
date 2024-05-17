@@ -1,0 +1,28 @@
+\doxysection{constants.\+h}
+\hypertarget{constants_8h_source}{}\label{constants_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ RADAR2\_CONSTANTS\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ RADAR2\_CONSTANTS\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <glm/glm.hpp>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <glm/gtc/constants.hpp>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00010\ \textcolor{comment}{//set\ glm::vec3\{0.0,\ 0.0,\ 0.0\}\ on\ Earth,\ under\ the\ radar}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ pi\ =\ glm::pi<float>();}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ init\_power\ =\ 150.0\ *\ 1000.0;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//150\ kV\ -\/\ initial\ power\ of\ signal}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ e\_radius\ =\ (4.0\ /\ 3.0)\ *\ 6400.0\ *\ 1000.0;\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//(4\ /\ 3)\ R\ -\/\ model\ in\ metres}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ lambda\ =\ 0.035;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//wavelength\ in\ metres}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00035\ glm::vec3\ e\_pos\ =\ glm::vec3\{0.0,\ -\/e\_radius,\ 0.0\};\ \ \ \ \ \ \textcolor{comment}{//Earth\ center}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00041\ glm::vec3\ print(glm::vec3\ a)\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ std::cout\ <<\ a.x\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ a.y\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ a.z\ <<\ std::endl;}
+\DoxyCodeLine{00043\ \}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//RADAR2\_CONSTANTS\_H}}
+
+\end{DoxyCode}

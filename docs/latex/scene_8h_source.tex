@@ -1,0 +1,25 @@
+\doxysection{scene.\+h}
+\hypertarget{scene_8h_source}{}\label{scene_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ RADAR2\_SCENE\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ RADAR2\_SCENE\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}signal.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}object.h"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_scene}{Scene}}\ \{}
+\DoxyCodeLine{00009\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00010\ \ \ \ \ \mbox{\hyperlink{class_signal}{Signal}}\ sig;}
+\DoxyCodeLine{00011\ \ \ \ \ std::vector<Aircraft>\ objects\ \{\};}
+\DoxyCodeLine{00012\ \ \ \ \ \mbox{\hyperlink{class_radar}{Radar}}\ radar;}
+\DoxyCodeLine{00013\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{class_scene}{Scene}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{class_scene}{Scene}}(\mbox{\hyperlink{class_signal}{Signal}}\ s,\ std::vector<Aircraft>\ o,\ \mbox{\hyperlink{class_radar}{Radar}}\ r)\ :\ sig(s),\ objects(o),\ radar(r)\ \{\}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ std::vector<Aircraft>*\ get\_objects()\ \{\ \textcolor{keywordflow}{return}\ \&objects;\ \}}
+\DoxyCodeLine{00018\ \};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//RADAR2\_SCENE\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,69 @@
+\doxysection{collision\+Detector Class Reference}
+\hypertarget{classcollision_detector}{}\label{classcollision_detector}\index{collisionDetector@{collisionDetector}}
+
+
+Класс для обнаружения коллизий сигналов.  
+
+
+
+
+{\ttfamily \#include $<$collision\+\_\+detector.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_signal}{Signal}} $>$ \mbox{\hyperlink{classcollision_detector_a861a52aae203bc62be1c2cdbf1b5295f}{is\+Collision}} (std\+::vector$<$ \mbox{\hyperlink{class_signal}{Signal}} $>$ \&signals, std\+::vector$<$ \mbox{\hyperlink{class_aircraft}{Aircraft}} $>$ \&objects)
+\begin{DoxyCompactList}\small\item\em Проверяет наличие коллизий сигналов с объектами. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{class_signal}{Signal}} $>$ \mbox{\hyperlink{classcollision_detector_ab702676f1539be2aedb8c586a980fdb1}{scan\+Objects}} (\mbox{\hyperlink{class_signal}{Signal}} sig, std\+::vector$<$ \mbox{\hyperlink{class_aircraft}{Aircraft}} $>$ \&objects)
+\begin{DoxyCompactList}\small\item\em Сканирует объекты для обнаружения коллизий с сигналом. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Класс для обнаружения коллизий сигналов. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcollision_detector_a861a52aae203bc62be1c2cdbf1b5295f}\label{classcollision_detector_a861a52aae203bc62be1c2cdbf1b5295f} 
+\index{collisionDetector@{collisionDetector}!isCollision@{isCollision}}
+\index{isCollision@{isCollision}!collisionDetector@{collisionDetector}}
+\doxysubsubsection{\texorpdfstring{isCollision()}{isCollision()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_signal}{Signal}} $>$ collision\+Detector\+::is\+Collision (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{class_signal}{Signal}} $>$ \&}]{signals,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_aircraft}{Aircraft}} $>$ \&}]{objects }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Проверяет наличие коллизий сигналов с объектами. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em signals} & Список сигналов. \\
+\hline
+{\em objects} & Список объектов. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Список новых сигналов после отражения. 
+\end{DoxyReturn}
+\Hypertarget{classcollision_detector_ab702676f1539be2aedb8c586a980fdb1}\label{classcollision_detector_ab702676f1539be2aedb8c586a980fdb1} 
+\index{collisionDetector@{collisionDetector}!scanObjects@{scanObjects}}
+\index{scanObjects@{scanObjects}!collisionDetector@{collisionDetector}}
+\doxysubsubsection{\texorpdfstring{scanObjects()}{scanObjects()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_signal}{Signal}} $>$ collision\+Detector\+::scan\+Objects (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_signal}{Signal}}}]{sig,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_aircraft}{Aircraft}} $>$ \&}]{objects }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Сканирует объекты для обнаружения коллизий с сигналом. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sig} & Сигнал. \\
+\hline
+{\em objects} & Список объектов. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Список новых сигналов после отражения. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+collision\+\_\+detector.\+h\end{DoxyCompactItemize}

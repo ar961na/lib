@@ -1,0 +1,282 @@
+\doxysection{Signal Class Reference}
+\hypertarget{class_signal}{}\label{class_signal}\index{Signal@{Signal}}
+
+
+Класс, представляющий сигнал радара.  
+
+
+
+
+{\ttfamily \#include $<$signal.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_signal_abbdb0fbc1937ed0344e5f579addca43f}\label{class_signal_abbdb0fbc1937ed0344e5f579addca43f} 
+{\bfseries Signal} ()=default
+\begin{DoxyCompactList}\small\item\em Конструктор по умолчанию. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_signal_ae051eaa8125c1fcd262217d3823d6d2e}{Signal}} (glm\+::vec3 p)
+\begin{DoxyCompactList}\small\item\em Конструктор с параметрами. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_signal_a909e3eaa79ffb056515f361e9a80dd3d}{Signal}} (double ph, double pw, glm\+::vec3 p, glm\+::vec3 d)
+\begin{DoxyCompactList}\small\item\em Конструктор с параметрами. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_signal_a6335019ac575cc28ca36bb884fecf4fc}{Signal}} (\mbox{\hyperlink{class_signal}{Signal}} const \&sig)
+\begin{DoxyCompactList}\small\item\em Конструктор копирования. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_signal_a953b09db30d3d63d318ad7ca39271965}{get\+\_\+phase}} ()
+\begin{DoxyCompactList}\small\item\em Получить фазу сигнала. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_signal_acf8183e7a31a29148bdeb2bdc5d601b5}{get\+\_\+power}} ()
+\begin{DoxyCompactList}\small\item\em Получить мощность сигнала. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_signal_a63533f3f5a791e1ec695ec3d64e98f89}{get\+\_\+height}} ()
+\begin{DoxyCompactList}\small\item\em Получить высоту источника сигнала. \end{DoxyCompactList}\item 
+glm\+::vec3 \mbox{\hyperlink{class_signal_a681a84428fa718091f26027414d570d5}{get\+\_\+pos}} ()
+\begin{DoxyCompactList}\small\item\em Получить позицию сигнала. \end{DoxyCompactList}\item 
+glm\+::vec3 \mbox{\hyperlink{class_signal_a06364e424d9fda321c43f297b1b90f47}{get\+\_\+dir}} ()
+\begin{DoxyCompactList}\small\item\em Получить направление сигнала. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_signal_ae774f06ef139f302e3d0978826bb4399}{get\+\_\+reflected}} ()
+\begin{DoxyCompactList}\small\item\em Получить количество отражений сигнала. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_signal_a924854c2c1652f52f5d54bd0f520cdd3}{is\+Max\+Reflection}} ()
+\begin{DoxyCompactList}\small\item\em Проверить, достигнута ли максимальная глубина отражений. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_signal_ab5fad7d25ca96350d2b8cc9454471aaa}{shift\+\_\+phase}} (double d\+\_\+phase)
+\begin{DoxyCompactList}\small\item\em Сдвиг фазы сигнала. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_signal_a5f802d66204226078dc693e97ecd51ac}{change\+\_\+power}} (double r)
+\begin{DoxyCompactList}\small\item\em Изменить мощность сигнала. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_signal_a11c0d0ebb43e2d07203634ca6fa18e17}{change\+\_\+src}} (glm\+::vec3 new\+\_\+src)
+\begin{DoxyCompactList}\small\item\em Изменить источник сигнала. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_signal_a80a6f941cd08bc3914261aa6f575336d}{change\+\_\+dir}} (glm\+::vec3 new\+\_\+dir)
+\begin{DoxyCompactList}\small\item\em Изменить направление сигнала. \end{DoxyCompactList}\item 
+\Hypertarget{class_signal_aaaee7b86b629057d67c30b7c7da9b9fa}\label{class_signal_aaaee7b86b629057d67c30b7c7da9b9fa} 
+void {\bfseries change\+\_\+reflect} ()
+\begin{DoxyCompactList}\small\item\em Изменить количество отражений. \end{DoxyCompactList}\item 
+\Hypertarget{class_signal_a58e93a220b7a7f11e9f5eb8d427b7061}\label{class_signal_a58e93a220b7a7f11e9f5eb8d427b7061} 
+void {\bfseries print} ()
+\begin{DoxyCompactList}\small\item\em Вывести информацию о сигнале. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{class_signal}{Signal}} $>$ \mbox{\hyperlink{class_signal_a469f624929046d8a3ce674e7029a4d19}{generate\+Signals}} ()
+\begin{DoxyCompactList}\small\item\em Сгенерировать новые сигналы на основе текущего. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Класс, представляющий сигнал радара. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_signal_ae051eaa8125c1fcd262217d3823d6d2e}\label{class_signal_ae051eaa8125c1fcd262217d3823d6d2e} 
+\index{Signal@{Signal}!Signal@{Signal}}
+\index{Signal@{Signal}!Signal@{Signal}}
+\doxysubsubsection{\texorpdfstring{Signal()}{Signal()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Signal\+::\+Signal (\begin{DoxyParamCaption}\item[{glm\+::vec3}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Конструктор с параметрами. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Позиция сигнала. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_signal_a909e3eaa79ffb056515f361e9a80dd3d}\label{class_signal_a909e3eaa79ffb056515f361e9a80dd3d} 
+\index{Signal@{Signal}!Signal@{Signal}}
+\index{Signal@{Signal}!Signal@{Signal}}
+\doxysubsubsection{\texorpdfstring{Signal()}{Signal()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Signal\+::\+Signal (\begin{DoxyParamCaption}\item[{double}]{ph,  }\item[{double}]{pw,  }\item[{glm\+::vec3}]{p,  }\item[{glm\+::vec3}]{d }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Конструктор с параметрами. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ph} & Фаза сигнала. \\
+\hline
+{\em pw} & Мощность сигнала. \\
+\hline
+{\em p} & Позиция сигнала. \\
+\hline
+{\em d} & Направление сигнала. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_signal_a6335019ac575cc28ca36bb884fecf4fc}\label{class_signal_a6335019ac575cc28ca36bb884fecf4fc} 
+\index{Signal@{Signal}!Signal@{Signal}}
+\index{Signal@{Signal}!Signal@{Signal}}
+\doxysubsubsection{\texorpdfstring{Signal()}{Signal()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Signal\+::\+Signal (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_signal}{Signal}} const \&}]{sig }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Конструктор копирования. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sig} & Сигнал для копирования. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_signal_a80a6f941cd08bc3914261aa6f575336d}\label{class_signal_a80a6f941cd08bc3914261aa6f575336d} 
+\index{Signal@{Signal}!change\_dir@{change\_dir}}
+\index{change\_dir@{change\_dir}!Signal@{Signal}}
+\doxysubsubsection{\texorpdfstring{change\_dir()}{change\_dir()}}
+{\footnotesize\ttfamily void Signal\+::change\+\_\+dir (\begin{DoxyParamCaption}\item[{glm\+::vec3}]{new\+\_\+dir }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Изменить направление сигнала. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+dir} & Новое направление сигнала. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_signal_a5f802d66204226078dc693e97ecd51ac}\label{class_signal_a5f802d66204226078dc693e97ecd51ac} 
+\index{Signal@{Signal}!change\_power@{change\_power}}
+\index{change\_power@{change\_power}!Signal@{Signal}}
+\doxysubsubsection{\texorpdfstring{change\_power()}{change\_power()}}
+{\footnotesize\ttfamily void Signal\+::change\+\_\+power (\begin{DoxyParamCaption}\item[{double}]{r }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Изменить мощность сигнала. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & Коэффициент изменения мощности. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_signal_a11c0d0ebb43e2d07203634ca6fa18e17}\label{class_signal_a11c0d0ebb43e2d07203634ca6fa18e17} 
+\index{Signal@{Signal}!change\_src@{change\_src}}
+\index{change\_src@{change\_src}!Signal@{Signal}}
+\doxysubsubsection{\texorpdfstring{change\_src()}{change\_src()}}
+{\footnotesize\ttfamily void Signal\+::change\+\_\+src (\begin{DoxyParamCaption}\item[{glm\+::vec3}]{new\+\_\+src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Изменить источник сигнала. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+src} & Новый источник сигнала. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_signal_a469f624929046d8a3ce674e7029a4d19}\label{class_signal_a469f624929046d8a3ce674e7029a4d19} 
+\index{Signal@{Signal}!generateSignals@{generateSignals}}
+\index{generateSignals@{generateSignals}!Signal@{Signal}}
+\doxysubsubsection{\texorpdfstring{generateSignals()}{generateSignals()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_signal}{Signal}} $>$ Signal\+::generate\+Signals (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Сгенерировать новые сигналы на основе текущего. 
+
+\begin{DoxyReturn}{Returns}
+Вектор новых сигналов. 
+\end{DoxyReturn}
+\Hypertarget{class_signal_a06364e424d9fda321c43f297b1b90f47}\label{class_signal_a06364e424d9fda321c43f297b1b90f47} 
+\index{Signal@{Signal}!get\_dir@{get\_dir}}
+\index{get\_dir@{get\_dir}!Signal@{Signal}}
+\doxysubsubsection{\texorpdfstring{get\_dir()}{get\_dir()}}
+{\footnotesize\ttfamily glm\+::vec3 Signal\+::get\+\_\+dir (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Получить направление сигнала. 
+
+\begin{DoxyReturn}{Returns}
+Направление сигнала. 
+\end{DoxyReturn}
+\Hypertarget{class_signal_a63533f3f5a791e1ec695ec3d64e98f89}\label{class_signal_a63533f3f5a791e1ec695ec3d64e98f89} 
+\index{Signal@{Signal}!get\_height@{get\_height}}
+\index{get\_height@{get\_height}!Signal@{Signal}}
+\doxysubsubsection{\texorpdfstring{get\_height()}{get\_height()}}
+{\footnotesize\ttfamily double Signal\+::get\+\_\+height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Получить высоту источника сигнала. 
+
+\begin{DoxyReturn}{Returns}
+Высота источника сигнала. 
+\end{DoxyReturn}
+\Hypertarget{class_signal_a953b09db30d3d63d318ad7ca39271965}\label{class_signal_a953b09db30d3d63d318ad7ca39271965} 
+\index{Signal@{Signal}!get\_phase@{get\_phase}}
+\index{get\_phase@{get\_phase}!Signal@{Signal}}
+\doxysubsubsection{\texorpdfstring{get\_phase()}{get\_phase()}}
+{\footnotesize\ttfamily double Signal\+::get\+\_\+phase (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Получить фазу сигнала. 
+
+\begin{DoxyReturn}{Returns}
+Фаза сигнала. 
+\end{DoxyReturn}
+\Hypertarget{class_signal_a681a84428fa718091f26027414d570d5}\label{class_signal_a681a84428fa718091f26027414d570d5} 
+\index{Signal@{Signal}!get\_pos@{get\_pos}}
+\index{get\_pos@{get\_pos}!Signal@{Signal}}
+\doxysubsubsection{\texorpdfstring{get\_pos()}{get\_pos()}}
+{\footnotesize\ttfamily glm\+::vec3 Signal\+::get\+\_\+pos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Получить позицию сигнала. 
+
+\begin{DoxyReturn}{Returns}
+Позиция сигнала. 
+\end{DoxyReturn}
+\Hypertarget{class_signal_acf8183e7a31a29148bdeb2bdc5d601b5}\label{class_signal_acf8183e7a31a29148bdeb2bdc5d601b5} 
+\index{Signal@{Signal}!get\_power@{get\_power}}
+\index{get\_power@{get\_power}!Signal@{Signal}}
+\doxysubsubsection{\texorpdfstring{get\_power()}{get\_power()}}
+{\footnotesize\ttfamily double Signal\+::get\+\_\+power (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Получить мощность сигнала. 
+
+\begin{DoxyReturn}{Returns}
+Мощность сигнала. 
+\end{DoxyReturn}
+\Hypertarget{class_signal_ae774f06ef139f302e3d0978826bb4399}\label{class_signal_ae774f06ef139f302e3d0978826bb4399} 
+\index{Signal@{Signal}!get\_reflected@{get\_reflected}}
+\index{get\_reflected@{get\_reflected}!Signal@{Signal}}
+\doxysubsubsection{\texorpdfstring{get\_reflected()}{get\_reflected()}}
+{\footnotesize\ttfamily int Signal\+::get\+\_\+reflected (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Получить количество отражений сигнала. 
+
+\begin{DoxyReturn}{Returns}
+Количество отражений. 
+\end{DoxyReturn}
+\Hypertarget{class_signal_a924854c2c1652f52f5d54bd0f520cdd3}\label{class_signal_a924854c2c1652f52f5d54bd0f520cdd3} 
+\index{Signal@{Signal}!isMaxReflection@{isMaxReflection}}
+\index{isMaxReflection@{isMaxReflection}!Signal@{Signal}}
+\doxysubsubsection{\texorpdfstring{isMaxReflection()}{isMaxReflection()}}
+{\footnotesize\ttfamily bool Signal\+::is\+Max\+Reflection (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Проверить, достигнута ли максимальная глубина отражений. 
+
+\begin{DoxyReturn}{Returns}
+true, если достигнута максимальная глубина отражений, иначе false. 
+\end{DoxyReturn}
+\Hypertarget{class_signal_ab5fad7d25ca96350d2b8cc9454471aaa}\label{class_signal_ab5fad7d25ca96350d2b8cc9454471aaa} 
+\index{Signal@{Signal}!shift\_phase@{shift\_phase}}
+\index{shift\_phase@{shift\_phase}!Signal@{Signal}}
+\doxysubsubsection{\texorpdfstring{shift\_phase()}{shift\_phase()}}
+{\footnotesize\ttfamily void Signal\+::shift\+\_\+phase (\begin{DoxyParamCaption}\item[{double}]{d\+\_\+phase }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Сдвиг фазы сигнала. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em d\+\_\+phase} & Сдвиг фазы. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+signal.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,84 @@
+\doxysection{module\+\_\+reflection.\+h}
+\hypertarget{module__reflection_8h_source}{}\label{module__reflection_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ RADAR2\_MODULE\_REFLECTION\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ RADAR2\_MODULE\_REFLECTION\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}signal.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}object.h"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <glm/gtx/intersect.hpp>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}constants.h"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmodule_reflection}{moduleReflection}}\ \{}
+\DoxyCodeLine{00017\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{class_signal}{Signal}}\ sig;\ }
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{class_aircraft}{Aircraft}}\ air;\ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ phase\_0\ =\ pi;\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{float}\ h\_rad(\mbox{\hyperlink{class_signal}{Signal}}\ s)\ \{\ \textcolor{keywordflow}{return}\ s.\mbox{\hyperlink{class_signal_a63533f3f5a791e1ec695ec3d64e98f89}{get\_height}}();\ \}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{float}\ h\_air(\mbox{\hyperlink{class_aircraft}{Aircraft}}\ a)\ \{\ \textcolor{keywordflow}{return}\ a.\mbox{\hyperlink{class_aircraft_aacf86bd11cda7042b3e8b6e3957ac6e8}{get\_height}}();\ \}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{float}\ k(\mbox{\hyperlink{class_signal}{Signal}}\ s)\ \{\ \textcolor{keywordflow}{return}\ sin(s.\mbox{\hyperlink{class_signal_a953b09db30d3d63d318ad7ca39271965}{get\_phase}}());\ \}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{float}\ l\_rad(\mbox{\hyperlink{class_signal}{Signal}}\ s)\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/e\_radius\ *\ k(s)\ +\ std::sqrt(e\_radius\ *\ e\_radius\ *\ k(s)\ *\ k(s)\ +\ 2\ *\ e\_radius\ *\ h\_rad(s)}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ h\_rad(s)\ *\ h\_rad(s));}
+\DoxyCodeLine{00052\ \ \ \ \ \}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{float}\ l\_air(\mbox{\hyperlink{class_signal}{Signal}}\ s,\ \mbox{\hyperlink{class_aircraft}{Aircraft}}\ a)\ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/e\_radius\ *\ k(s)\ +\ std::sqrt(e\_radius\ *\ e\_radius\ *\ k(s)\ *\ k(s)\ +\ 2\ *\ e\_radius\ *\ h\_air(a)}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ h\_air(a)\ *\ h\_air(a));}
+\DoxyCodeLine{00063\ \ \ \ \ \}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{float}\ r(\mbox{\hyperlink{class_signal}{Signal}}\ s,\ \mbox{\hyperlink{class_aircraft}{Aircraft}}\ a)\ \{\ \textcolor{keywordflow}{return}\ glm::distance(s.\mbox{\hyperlink{class_signal_a681a84428fa718091f26027414d570d5}{get\_pos}}(),\ a.\mbox{\hyperlink{class_aircraft_a0255ff7ef08608e4959f44c47c6daa66}{get\_pos}}());\ \}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{float}\ eps\_air(\mbox{\hyperlink{class_signal}{Signal}}\ s,\ \mbox{\hyperlink{class_aircraft}{Aircraft}}\ a)\ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ l\ =\ -\/\ pi\ /\ 2\ +\ acos(}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (pow(e\_radius\ +\ h\_rad(s),2)\ +\ pow(r(s,\ a),\ 2)}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/\ pow(e\_radius+\ h\_air(a),\ 2))\ /\ (2\ *\ r(s,\ a)\ *\ (e\_radius\ +\ h\_rad(s))));}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ l;}
+\DoxyCodeLine{00084\ \ \ \ \ \}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{float}\ delta(\mbox{\hyperlink{class_signal}{Signal}}\ s,\ \mbox{\hyperlink{class_aircraft}{Aircraft}}\ a)\ \{\ \textcolor{keywordflow}{return}\ acos((l\_rad(s)\ *\ l\_rad(s)\ +\ r(s,\ a)\ *\ r(s,\ a)\ -\/\ l\_air(s,\ a)\ *\ l\_air(s,\ a))\ /\ (2\ *\ l\_rad(s)\ *\ r(s,\ a)));\ \}}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordtype}{float}\ eps\_pointReflection(\mbox{\hyperlink{class_signal}{Signal}}\ s,\ \mbox{\hyperlink{class_aircraft}{Aircraft}}\ a)\ \{\ \textcolor{keywordflow}{return}\ eps\_air(s,\ a)\ -\/\ delta(s,\ a);\ \}}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordtype}{float}\ getDPhase(\mbox{\hyperlink{class_signal}{Signal}}\ s,\ \mbox{\hyperlink{class_aircraft}{Aircraft}}\ a)\ \{}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ d\_phase\ =\ phase\_0\ +\ (2\ *\ pi\ /\ lambda)\ *\ (l\_rad(s)\ +\ l\_air(s,\ a)\ -\/\ r(s,\ a));\ \ \textcolor{comment}{//phase\ shift}}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ d\_phase;}
+\DoxyCodeLine{00111\ \ \ \ \ \}}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00119\ \ \ \ \ glm::vec3\ getPointReflection(\mbox{\hyperlink{class_signal}{Signal}}\ s,\ \mbox{\hyperlink{class_aircraft}{Aircraft}}\ a)\ \{}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ glm::vec3\ l\_dop\ =\ glm::vec3\{\ (air.\mbox{\hyperlink{class_aircraft_a0255ff7ef08608e4959f44c47c6daa66}{get\_pos}}()\ -\/\ sig.\mbox{\hyperlink{class_signal_a681a84428fa718091f26027414d570d5}{get\_pos}}()).x,}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (air.\mbox{\hyperlink{class_aircraft_a0255ff7ef08608e4959f44c47c6daa66}{get\_pos}}()\ -\/\ sig.\mbox{\hyperlink{class_signal_a681a84428fa718091f26027414d570d5}{get\_pos}}()).y}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/\ r(s,\ a)\ *\ sin(eps\_air(s,\ a))}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/\ l\_rad(s)\ *\ sin(eps\_pointReflection(s,\ a)),}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (air.\mbox{\hyperlink{class_aircraft_a0255ff7ef08608e4959f44c47c6daa66}{get\_pos}}()\ -\/\ sig.\mbox{\hyperlink{class_signal_a681a84428fa718091f26027414d570d5}{get\_pos}}()).z\ \};}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ glm::vec3\ l\ =\ sig.\mbox{\hyperlink{class_signal_a681a84428fa718091f26027414d570d5}{get\_pos}}()}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/\ (float)l\_rad(s)\ *\ glm::normalize(\ l\_dop\ );}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \textcolor{comment}{//print(l);}}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \textcolor{comment}{//std::cout\ <<\ e\_radius\ <<\ std::endl;}}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ l;}
+\DoxyCodeLine{00130\ \ \ \ \ \}}
+\DoxyCodeLine{00131\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00137\ \ \ \ \ \mbox{\hyperlink{classmodule_reflection_ab4746fddab316c9df1eca385b99bb053}{moduleReflection}}()\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00147\ \ \ \ \ \mbox{\hyperlink{classmodule_reflection_ae81000a01280ee10727fa5bf7e8cd988}{moduleReflection}}(\mbox{\hyperlink{class_signal}{Signal}}\ s,\ \mbox{\hyperlink{class_aircraft}{Aircraft}}\ a)\ :\ sig(s),\ air(a)\ \{\}}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00156\ \ \ \ \ \mbox{\hyperlink{class_signal}{Signal}}\ \mbox{\hyperlink{classmodule_reflection_ae52d092bb55918d9fd01f70815277c27}{reflect}}()\ \{}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_signal}{Signal}}\ new\_sig(sig);}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ new\_sig.\mbox{\hyperlink{class_signal_ab5fad7d25ca96350d2b8cc9454471aaa}{shift\_phase}}(getDPhase(sig,\ air));}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ new\_sig.\mbox{\hyperlink{class_signal_a11c0d0ebb43e2d07203634ca6fa18e17}{change\_src}}(getPointReflection(sig,\ air));}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ new\_sig.\mbox{\hyperlink{class_signal_a80a6f941cd08bc3914261aa6f575336d}{change\_dir}}(glm::normalize(glm::reflect(sig.\mbox{\hyperlink{class_signal_a06364e424d9fda321c43f297b1b90f47}{get\_dir}}(),\ glm::normalize(getPointReflection(sig,\ air)\ -\/\ e\_pos))));}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ new\_sig.\mbox{\hyperlink{class_signal_a5f802d66204226078dc693e97ecd51ac}{change\_power}}(r(sig,\ air));}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ new\_sig.\mbox{\hyperlink{class_signal_aaaee7b86b629057d67c30b7c7da9b9fa}{change\_reflect}}();}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \textcolor{comment}{//new\_sig.print();}}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ new\_sig;}
+\DoxyCodeLine{00165\ \ \ \ \ \}}
+\DoxyCodeLine{00166\ \};}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00168\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//RADAR2\_MODULE\_REFLECTION\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,204 @@
+\doxysection{Radar Class Reference}
+\hypertarget{class_radar}{}\label{class_radar}\index{Radar@{Radar}}
+
+
+Класс, представляющий радар.  
+
+
+
+
+{\ttfamily \#include $<$radar.\+h$>$}
+
+Inheritance diagram for Radar\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_radar}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_radar_a3a28471ac2b38c9c057ef0b842a66e7e}{change\+\_\+dir}} (const glm\+::vec3 \&new\+\_\+dir)
+\begin{DoxyCompactList}\small\item\em Изменяет направление радара. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{class_signal}{Signal}} $>$ \mbox{\hyperlink{class_radar_a7ec572bd15cda617ee44626c1864ba86}{send\+\_\+signals}} (double phase, double power) const
+\begin{DoxyCompactList}\small\item\em Отправляет сигналы из радара. \end{DoxyCompactList}\item 
+\Hypertarget{class_radar_a58887755525abd3f340963e2bbdcc972}\label{class_radar_a58887755525abd3f340963e2bbdcc972} 
+{\bfseries Base} ()=default
+\begin{DoxyCompactList}\small\item\em Конструктор по умолчанию. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_radar_afc5843d625347debe33a75706aaf8f4d}{Base}} (glm\+::vec3 p)
+\begin{DoxyCompactList}\small\item\em Конструктор с параметром позиции. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_radar_aef0aaddcabd3c4724457bc5699252df3}{Base}} (\mbox{\hyperlink{class_base}{Base}} const \&b)
+\begin{DoxyCompactList}\small\item\em Конструктор копирования. \end{DoxyCompactList}\item 
+glm\+::vec3 \mbox{\hyperlink{class_radar_a0255ff7ef08608e4959f44c47c6daa66}{get\+\_\+pos}} () const
+\begin{DoxyCompactList}\small\item\em Возвращает текущую позицию объекта. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_radar_aacf86bd11cda7042b3e8b6e3957ac6e8}{get\+\_\+height}} ()
+\begin{DoxyCompactList}\small\item\em Возвращает высоту объекта над поверхностью Земли. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_radar_a4d501375f13f379ba75823eea6c72af0}{set\+\_\+height}} (double new\+\_\+height)
+\begin{DoxyCompactList}\small\item\em Устанавливает новую высоту объекта над поверхностью Земли. \end{DoxyCompactList}\item 
+\Hypertarget{class_radar_a61f923d663b1a2318819a3b1034f506f}\label{class_radar_a61f923d663b1a2318819a3b1034f506f} 
+void {\bfseries print} () const
+\begin{DoxyCompactList}\small\item\em Выводит информацию о позиции объекта. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_base}{Base}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Base} ()=default
+\begin{DoxyCompactList}\small\item\em Конструктор по умолчанию. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_base_afc5843d625347debe33a75706aaf8f4d}{Base}} (glm\+::vec3 p)
+\begin{DoxyCompactList}\small\item\em Конструктор с параметром позиции. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_base_aef0aaddcabd3c4724457bc5699252df3}{Base}} (\mbox{\hyperlink{class_base}{Base}} const \&b)
+\begin{DoxyCompactList}\small\item\em Конструктор копирования. \end{DoxyCompactList}\item 
+glm\+::vec3 \mbox{\hyperlink{class_base_a0255ff7ef08608e4959f44c47c6daa66}{get\+\_\+pos}} () const
+\begin{DoxyCompactList}\small\item\em Возвращает текущую позицию объекта. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_base_aacf86bd11cda7042b3e8b6e3957ac6e8}{get\+\_\+height}} ()
+\begin{DoxyCompactList}\small\item\em Возвращает высоту объекта над поверхностью Земли. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_base_a4d501375f13f379ba75823eea6c72af0}{set\+\_\+height}} (double new\+\_\+height)
+\begin{DoxyCompactList}\small\item\em Устанавливает новую высоту объекта над поверхностью Земли. \end{DoxyCompactList}\item 
+void {\bfseries print} () const
+\begin{DoxyCompactList}\small\item\em Выводит информацию о позиции объекта. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const float \mbox{\hyperlink{class_radar_adf71997eab5aa347eb196fb80832c864}{radius}} = 100.\+0f
+\item 
+glm\+::vec3 \mbox{\hyperlink{class_radar_a99051c4ef1f92d6c980a6072f74ffb0e}{dir}} = glm\+::normalize(glm\+::vec3\{1.\+0f, 1.\+0f, 0.\+0f\})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_base}{Base}}}
+\begin{DoxyCompactItemize}
+\item 
+glm\+::vec3 \mbox{\hyperlink{class_base_a96c4387664a53035eb4134fb5cc6a28d}{pos}} = \{0.\+0, 0.\+0, 0.\+0\}
+\item 
+double \mbox{\hyperlink{class_base_ad64ed3f2f8699176f8c31d9dad580b55}{radius}} = 10.\+0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Класс, представляющий радар. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_radar_aef0aaddcabd3c4724457bc5699252df3}\label{class_radar_aef0aaddcabd3c4724457bc5699252df3} 
+\index{Radar@{Radar}!Base@{Base}}
+\index{Base@{Base}!Radar@{Radar}}
+\doxysubsubsection{\texorpdfstring{Base()}{Base()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Base\+::\+Base (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_base}{Base}} const \&}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Конструктор копирования. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em b} & Объект для копирования. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_radar_afc5843d625347debe33a75706aaf8f4d}\label{class_radar_afc5843d625347debe33a75706aaf8f4d} 
+\index{Radar@{Radar}!Base@{Base}}
+\index{Base@{Base}!Radar@{Radar}}
+\doxysubsubsection{\texorpdfstring{Base()}{Base()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Base\+::\+Base (\begin{DoxyParamCaption}\item[{glm\+::vec3}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Конструктор с параметром позиции. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Позиция объекта. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_radar_a3a28471ac2b38c9c057ef0b842a66e7e}\label{class_radar_a3a28471ac2b38c9c057ef0b842a66e7e} 
+\index{Radar@{Radar}!change\_dir@{change\_dir}}
+\index{change\_dir@{change\_dir}!Radar@{Radar}}
+\doxysubsubsection{\texorpdfstring{change\_dir()}{change\_dir()}}
+{\footnotesize\ttfamily void Radar\+::change\+\_\+dir (\begin{DoxyParamCaption}\item[{const glm\+::vec3 \&}]{new\+\_\+dir }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Изменяет направление радара. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+dir} & Новое направление радара. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_radar_aacf86bd11cda7042b3e8b6e3957ac6e8}\label{class_radar_aacf86bd11cda7042b3e8b6e3957ac6e8} 
+\index{Radar@{Radar}!get\_height@{get\_height}}
+\index{get\_height@{get\_height}!Radar@{Radar}}
+\doxysubsubsection{\texorpdfstring{get\_height()}{get\_height()}}
+{\footnotesize\ttfamily double Base\+::get\+\_\+height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Возвращает высоту объекта над поверхностью Земли. 
+
+\begin{DoxyReturn}{Returns}
+Высота объекта. 
+\end{DoxyReturn}
+\Hypertarget{class_radar_a0255ff7ef08608e4959f44c47c6daa66}\label{class_radar_a0255ff7ef08608e4959f44c47c6daa66} 
+\index{Radar@{Radar}!get\_pos@{get\_pos}}
+\index{get\_pos@{get\_pos}!Radar@{Radar}}
+\doxysubsubsection{\texorpdfstring{get\_pos()}{get\_pos()}}
+{\footnotesize\ttfamily glm\+::vec3 Base\+::get\+\_\+pos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Возвращает текущую позицию объекта. 
+
+\begin{DoxyReturn}{Returns}
+Позиция объекта. 
+\end{DoxyReturn}
+\Hypertarget{class_radar_a7ec572bd15cda617ee44626c1864ba86}\label{class_radar_a7ec572bd15cda617ee44626c1864ba86} 
+\index{Radar@{Radar}!send\_signals@{send\_signals}}
+\index{send\_signals@{send\_signals}!Radar@{Radar}}
+\doxysubsubsection{\texorpdfstring{send\_signals()}{send\_signals()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_signal}{Signal}} $>$ Radar\+::send\+\_\+signals (\begin{DoxyParamCaption}\item[{double}]{phase,  }\item[{double}]{power }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Отправляет сигналы из радара. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em phase} & Фаза сигнала. \\
+\hline
+{\em power} & Мощность сигнала. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Возвращает вектор сигналов, отправленных из радара. 
+\end{DoxyReturn}
+\Hypertarget{class_radar_a4d501375f13f379ba75823eea6c72af0}\label{class_radar_a4d501375f13f379ba75823eea6c72af0} 
+\index{Radar@{Radar}!set\_height@{set\_height}}
+\index{set\_height@{set\_height}!Radar@{Radar}}
+\doxysubsubsection{\texorpdfstring{set\_height()}{set\_height()}}
+{\footnotesize\ttfamily void Base\+::set\+\_\+height (\begin{DoxyParamCaption}\item[{double}]{new\+\_\+height }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Устанавливает новую высоту объекта над поверхностью Земли. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+height} & Новая высота объекта. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_radar_a99051c4ef1f92d6c980a6072f74ffb0e}\label{class_radar_a99051c4ef1f92d6c980a6072f74ffb0e} 
+\index{Radar@{Radar}!dir@{dir}}
+\index{dir@{dir}!Radar@{Radar}}
+\doxysubsubsection{\texorpdfstring{dir}{dir}}
+{\footnotesize\ttfamily glm\+::vec3 Radar\+::dir = glm\+::normalize(glm\+::vec3\{1.\+0f, 1.\+0f, 0.\+0f\})}
+
+Направление радара \Hypertarget{class_radar_adf71997eab5aa347eb196fb80832c864}\label{class_radar_adf71997eab5aa347eb196fb80832c864} 
+\index{Radar@{Radar}!radius@{radius}}
+\index{radius@{radius}!Radar@{Radar}}
+\doxysubsubsection{\texorpdfstring{radius}{radius}}
+{\footnotesize\ttfamily const float Radar\+::radius = 100.\+0f}
+
+Радиус радара 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+radar.\+h\end{DoxyCompactItemize}

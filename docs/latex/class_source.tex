@@ -1,0 +1,132 @@
+\doxysection{Source Class Reference}
+\hypertarget{class_source}{}\label{class_source}\index{Source@{Source}}
+
+
+Класс, представляющий источник сигнала.  
+
+
+
+
+{\ttfamily \#include $<$object.\+h$>$}
+
+Inheritance diagram for Source\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_source}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_source_a58887755525abd3f340963e2bbdcc972}\label{class_source_a58887755525abd3f340963e2bbdcc972} 
+{\bfseries Base} ()=default
+\begin{DoxyCompactList}\small\item\em Конструктор по умолчанию. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_source_afc5843d625347debe33a75706aaf8f4d}{Base}} (glm\+::vec3 p)
+\begin{DoxyCompactList}\small\item\em Конструктор с параметром позиции. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_source_aef0aaddcabd3c4724457bc5699252df3}{Base}} (\mbox{\hyperlink{class_base}{Base}} const \&b)
+\begin{DoxyCompactList}\small\item\em Конструктор копирования. \end{DoxyCompactList}\item 
+glm\+::vec3 \mbox{\hyperlink{class_source_a0255ff7ef08608e4959f44c47c6daa66}{get\+\_\+pos}} () const
+\begin{DoxyCompactList}\small\item\em Возвращает текущую позицию объекта. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_source_aacf86bd11cda7042b3e8b6e3957ac6e8}{get\+\_\+height}} ()
+\begin{DoxyCompactList}\small\item\em Возвращает высоту объекта над поверхностью Земли. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_source_a4d501375f13f379ba75823eea6c72af0}{set\+\_\+height}} (double new\+\_\+height)
+\begin{DoxyCompactList}\small\item\em Устанавливает новую высоту объекта над поверхностью Земли. \end{DoxyCompactList}\item 
+\Hypertarget{class_source_a61f923d663b1a2318819a3b1034f506f}\label{class_source_a61f923d663b1a2318819a3b1034f506f} 
+void {\bfseries print} () const
+\begin{DoxyCompactList}\small\item\em Выводит информацию о позиции объекта. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{class_source_ae49f03b50bae2ab055eea88b4a8ee9fe}{radius}} = 10.\+0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Класс, представляющий источник сигнала. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_source_aef0aaddcabd3c4724457bc5699252df3}\label{class_source_aef0aaddcabd3c4724457bc5699252df3} 
+\index{Source@{Source}!Base@{Base}}
+\index{Base@{Base}!Source@{Source}}
+\doxysubsubsection{\texorpdfstring{Base()}{Base()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Base\+::\+Base (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_base}{Base}} const \&}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Конструктор копирования. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em b} & Объект для копирования. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_source_afc5843d625347debe33a75706aaf8f4d}\label{class_source_afc5843d625347debe33a75706aaf8f4d} 
+\index{Source@{Source}!Base@{Base}}
+\index{Base@{Base}!Source@{Source}}
+\doxysubsubsection{\texorpdfstring{Base()}{Base()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Base\+::\+Base (\begin{DoxyParamCaption}\item[{glm\+::vec3}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Конструктор с параметром позиции. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Позиция объекта. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_source_aacf86bd11cda7042b3e8b6e3957ac6e8}\label{class_source_aacf86bd11cda7042b3e8b6e3957ac6e8} 
+\index{Source@{Source}!get\_height@{get\_height}}
+\index{get\_height@{get\_height}!Source@{Source}}
+\doxysubsubsection{\texorpdfstring{get\_height()}{get\_height()}}
+{\footnotesize\ttfamily double Base\+::get\+\_\+height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Возвращает высоту объекта над поверхностью Земли. 
+
+\begin{DoxyReturn}{Returns}
+Высота объекта. 
+\end{DoxyReturn}
+\Hypertarget{class_source_a0255ff7ef08608e4959f44c47c6daa66}\label{class_source_a0255ff7ef08608e4959f44c47c6daa66} 
+\index{Source@{Source}!get\_pos@{get\_pos}}
+\index{get\_pos@{get\_pos}!Source@{Source}}
+\doxysubsubsection{\texorpdfstring{get\_pos()}{get\_pos()}}
+{\footnotesize\ttfamily glm\+::vec3 Base\+::get\+\_\+pos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Возвращает текущую позицию объекта. 
+
+\begin{DoxyReturn}{Returns}
+Позиция объекта. 
+\end{DoxyReturn}
+\Hypertarget{class_source_a4d501375f13f379ba75823eea6c72af0}\label{class_source_a4d501375f13f379ba75823eea6c72af0} 
+\index{Source@{Source}!set\_height@{set\_height}}
+\index{set\_height@{set\_height}!Source@{Source}}
+\doxysubsubsection{\texorpdfstring{set\_height()}{set\_height()}}
+{\footnotesize\ttfamily void Base\+::set\+\_\+height (\begin{DoxyParamCaption}\item[{double}]{new\+\_\+height }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Устанавливает новую высоту объекта над поверхностью Земли. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+height} & Новая высота объекта. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_source_ae49f03b50bae2ab055eea88b4a8ee9fe}\label{class_source_ae49f03b50bae2ab055eea88b4a8ee9fe} 
+\index{Source@{Source}!radius@{radius}}
+\index{radius@{radius}!Source@{Source}}
+\doxysubsubsection{\texorpdfstring{radius}{radius}}
+{\footnotesize\ttfamily float Source\+::radius = 10.\+0}
+
+Радиус источника сигнала по умолчанию 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+object.\+h\end{DoxyCompactItemize}

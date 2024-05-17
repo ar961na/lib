@@ -1,0 +1,121 @@
+\doxysection{signal.\+h}
+\hypertarget{signal_8h_source}{}\label{signal_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ RADAR2\_SIGNAL\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ RADAR2\_SIGNAL\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <glm/glm.hpp>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}constants.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}object.h"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_signal}{Signal}}\ \{}
+\DoxyCodeLine{00014\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{double}\ phase\ =\ 20.0;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{double}\ power\ =\ init\_power\ *\ 1.0;\ }
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{class_source}{Source}}\ src;\ }
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ glm::vec3\ dir\ =\ glm::normalize(glm::vec3\{1.0,\ 1.0,\ 1.0\});\ }
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{int}\ reflectionDepth\ =\ 1;\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{int}\ reflection\ =\ 0;\ }
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{int}\ fineness\_of\_coating\ =\ 10;\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{class_signal_abbdb0fbc1937ed0344e5f579addca43f}{Signal}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_signal_ae051eaa8125c1fcd262217d3823d6d2e}{Signal}}(glm::vec3\ p)\ :\ src\{\mbox{\hyperlink{class_source}{Source}}\{p\}\}\ \{\}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{class_signal_a909e3eaa79ffb056515f361e9a80dd3d}{Signal}}(\textcolor{keywordtype}{double}\ ph,\ \textcolor{keywordtype}{double}\ pw,\ glm::vec3\ p,\ glm::vec3\ d)\ :}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ phase\{ph\},\ power\{pw\},\ src\{\mbox{\hyperlink{class_source}{Source}}\{p\}\},\ dir\{d\}\ \{\}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00052\ \ \ \ \ \mbox{\hyperlink{class_signal_a6335019ac575cc28ca36bb884fecf4fc}{Signal}}(\mbox{\hyperlink{class_signal}{Signal}}\ \textcolor{keyword}{const}\ \&sig)\ :}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ phase\{sig.phase\},\ power\{sig.power\},\ src\{sig.src\},\ dir\{sig.dir\}\ \{\}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_signal_a953b09db30d3d63d318ad7ca39271965}{get\_phase}}()\ \{\ \textcolor{keywordflow}{return}\ phase;\ \}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_signal_acf8183e7a31a29148bdeb2bdc5d601b5}{get\_power}}()\ \{\ \textcolor{keywordflow}{return}\ power;\ \}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_signal_a63533f3f5a791e1ec695ec3d64e98f89}{get\_height}}()\ \{\ \textcolor{keywordflow}{return}\ src.\mbox{\hyperlink{class_source_aacf86bd11cda7042b3e8b6e3957ac6e8}{get\_height}}();\ \}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00077\ \ \ \ \ glm::vec3\ \mbox{\hyperlink{class_signal_a681a84428fa718091f26027414d570d5}{get\_pos}}()\ \{\ \textcolor{keywordflow}{return}\ src.\mbox{\hyperlink{class_source_a0255ff7ef08608e4959f44c47c6daa66}{get\_pos}}();\ \}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00083\ \ \ \ \ glm::vec3\ \mbox{\hyperlink{class_signal_a06364e424d9fda321c43f297b1b90f47}{get\_dir}}()\ \{\ \textcolor{keywordflow}{return}\ dir;\ \}}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_signal_ae774f06ef139f302e3d0978826bb4399}{get\_reflected}}()\ \{\ \textcolor{keywordflow}{return}\ reflection;\ \}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_signal_a924854c2c1652f52f5d54bd0f520cdd3}{isMaxReflection}}()\ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ reflection\ ==\ reflectionDepth;}
+\DoxyCodeLine{00097\ \ \ \ \ \}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_signal_ab5fad7d25ca96350d2b8cc9454471aaa}{shift\_phase}}(\textcolor{keywordtype}{double}\ d\_phase)\ \{}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ phase\ =\ std::fmod((phase\ +\ d\_phase),\ 2\ *\ pi);}
+\DoxyCodeLine{00105\ \ \ \ \ \}}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_signal_a5f802d66204226078dc693e97ecd51ac}{change\_power}}(\textcolor{keywordtype}{double}\ r)\ \{}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ power\ /=\ r\ *\ r;}
+\DoxyCodeLine{00113\ \ \ \ \ \}}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_signal_a11c0d0ebb43e2d07203634ca6fa18e17}{change\_src}}(glm::vec3\ new\_src)\ \{}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ src\ =\ \mbox{\hyperlink{class_source}{Source}}\{new\_src\};}
+\DoxyCodeLine{00121\ \ \ \ \ \}}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_signal_a80a6f941cd08bc3914261aa6f575336d}{change\_dir}}(glm::vec3\ new\_dir)\ \{}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ dir\ =\ glm::normalize(new\_dir);}
+\DoxyCodeLine{00129\ \ \ \ \ \}}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_signal_aaaee7b86b629057d67c30b7c7da9b9fa}{change\_reflect}}()\ \{}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_signal_a924854c2c1652f52f5d54bd0f520cdd3}{isMaxReflection}}())\ \{}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}Signal:\ maximum\ reflection\ depth\ already\ has\ been\ reached"{}});}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ reflection++;}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00141\ \ \ \ \ \}}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_signal_a58e93a220b7a7f11e9f5eb8d427b7061}{print}}()\ \{}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ std::cout\ \textcolor{comment}{//<<\ "{}position:\ "{}}}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}(\ "{}}\ <<\ \mbox{\hyperlink{class_signal_a681a84428fa718091f26027414d570d5}{get\_pos}}().x}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ \mbox{\hyperlink{class_signal_a681a84428fa718091f26027414d570d5}{get\_pos}}().y}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ \mbox{\hyperlink{class_signal_a681a84428fa718091f26027414d570d5}{get\_pos}}().z}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}),\ "{}};}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \textcolor{comment}{//<<\ "{}direction:\ "{}}}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \textcolor{comment}{//<<\ "{}(\ "{}\ <<\ get\_dir().x}}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \textcolor{comment}{//<<\ "{},\ "{}\ <<\ get\_dir().y}}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \textcolor{comment}{//<<\ "{},\ "{}\ <<\ get\_dir().z}}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \textcolor{comment}{//<<\ "{})\ power:\ "{}}}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \textcolor{comment}{//<<\ get\_power()\ <<\ std::endl;}}
+\DoxyCodeLine{00158\ \ \ \ \ \}}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00164\ \ \ \ \ std::vector<Signal>\ \mbox{\hyperlink{class_signal_a469f624929046d8a3ce674e7029a4d19}{generateSignals}}()\ \{}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ std::vector<Signal>\ signals(0);}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ new\_power\ =\ 0;}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 1;\ j\ <\ fineness\_of\_coating\ +\ 1;\ j++)\ \{}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ new\_power\ +=\ 2\ *\ j\ *\ j;}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 1;\ j\ <\ fineness\_of\_coating\ +\ 1;\ j++)\ \{}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ rad\ =\ sin(j\ *\ pi\ /\ (2\ *\ fineness\_of\_coating));}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ y\ =\ cos(j\ *\ pi\ /\ (2\ *\ fineness\_of\_coating));}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ count\ =\ 2\ *\ j;\ \textcolor{comment}{//\ Varying\ number\ of\ signals\ per\ iteration\ based\ on\ 'j'}}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ count;\ ++i)\ \{}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ angle\ =\ 2\ *\ pi\ /\ count\ *\ i;}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ x\ =\ cos(angle)\ *\ rad\ *\ sqrt(1\ -\/\ y\ *\ y);\ \textcolor{comment}{//\ Adjusted\ x\ coordinate\ for\ half\ of\ the\ sphere}}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ z\ =\ sin(angle)\ *\ rad\ *\ sqrt(1\ -\/\ y\ *\ y);\ \textcolor{comment}{//\ Adjusted\ y\ coordinate\ for\ half\ of\ the\ sphere}}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ glm::vec3\ signal\_direction\ =\ glm::normalize(dir\ +\ glm::vec3(x,\ y,\ z));}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ signals.push\_back(\mbox{\hyperlink{class_signal_abbdb0fbc1937ed0344e5f579addca43f}{Signal}}(0.0,\ new\_power,\ src.\mbox{\hyperlink{class_source_a0255ff7ef08608e4959f44c47c6daa66}{get\_pos}}()\ +\ glm::vec3(x,\ y,\ z),\ signal\_direction));}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ signals;}
+\DoxyCodeLine{00187\ \ \ \ \ \}}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00189\ \};}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//RADAR2\_SIGNAL\_H}}
+
+\end{DoxyCode}

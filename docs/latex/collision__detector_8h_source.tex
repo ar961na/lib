@@ -1,0 +1,77 @@
+\doxysection{collision\+\_\+detector.\+h}
+\hypertarget{collision__detector_8h_source}{}\label{collision__detector_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ RADAR2\_COLLISION\_DETECTOR\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ RADAR2\_COLLISION\_DETECTOR\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <glm/gtx/intersect.hpp>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}constants.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}signal.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}object.h"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}module\_reflection.h"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcollision_detector}{collisionDetector}}\ \{}
+\DoxyCodeLine{00016\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00025\ \ \ \ \ std::vector<Signal>\ \mbox{\hyperlink{classcollision_detector_a861a52aae203bc62be1c2cdbf1b5295f}{isCollision}}(std::vector<Signal>\&\ signals,\ std::vector<Aircraft>\&\ objects)\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ std::vector<Signal>\ new\_signals(0);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keyword}{auto}\ sig\ :\ signals)\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Signal>\ reflected\_signals\ =\ \mbox{\hyperlink{classcollision_detector_ab702676f1539be2aedb8c586a980fdb1}{scanObjects}}(sig,\ objects);}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ new\_signals.insert(new\_signals.end(),\ reflected\_signals.begin(),\ reflected\_signals.end());}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//std::cout\ <<\ "{}size:\ "{}\ <<\ reflected\_signals.size()\ <<\ std::endl;}}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ new\_signals;}
+\DoxyCodeLine{00035\ \ \ \ \ \}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00044\ \ \ \ \ std::vector<Signal>\ \mbox{\hyperlink{classcollision_detector_ab702676f1539be2aedb8c586a980fdb1}{scanObjects}}(\mbox{\hyperlink{class_signal}{Signal}}\ sig,\ std::vector<Aircraft>\&\ objects)\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ std::vector<Signal>\ reflected\_signals(0);}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (sig.\mbox{\hyperlink{class_signal_a924854c2c1652f52f5d54bd0f520cdd3}{isMaxReflection}}())\{\ \ \ \ \ \textcolor{comment}{//reached\ reflection\ depth}}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ reflected\_signals;}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id}\ =\ -\/1;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//id\ of\ nearest\ object\ in\ objects}}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ r\_min\ =\ 2.0\ *\ e\_radius;}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ r\_air\ =\ r\_min;}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ objects.size();\ ++i)\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ is\_air\ =\ glm::intersectRaySphere(sig.\mbox{\hyperlink{class_signal_a681a84428fa718091f26027414d570d5}{get\_pos}}(),\ sig.\mbox{\hyperlink{class_signal_a06364e424d9fda321c43f297b1b90f47}{get\_dir}}(),\ objects[i].get\_pos(),\ objects[i].radius\ *\ objects[i].radius,\ r\_air);}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(is\_air\ and\ r\_air\ <\ r\_min)}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{id}\ =\ i;}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\textcolor{keywordtype}{id}\ ==\ -\/1)\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//no\ collision}}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//std::cout\ <<\ "{}scanObjects:\ no\ collision"{}\ <<\ std::endl;}}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ reflected\_signals;}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ r\_earth\ =\ 2.0\ *\ e\_radius;}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ is\_earth\ =\ glm::intersectRaySphere(sig.\mbox{\hyperlink{class_signal_a681a84428fa718091f26027414d570d5}{get\_pos}}(),\ sig.\mbox{\hyperlink{class_signal_a06364e424d9fda321c43f297b1b90f47}{get\_dir}}(),\ e\_pos,\ \textcolor{keywordtype}{float}(e\_radius\ *\ e\_radius),\ r\_earth);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(is\_earth\ ==\ 1\ and\ r\_earth\ <\ r\_min)\ \{\ \ \ \ \ \textcolor{comment}{//collision\ with\ earth}}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//std::cout\ <<\ "{}scanObjects:\ collision\ with\ earth"{}\ <<\ std::endl;}}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ reflected\_signals;}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//no\ collision\ with\ earth}}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}scanObjects:\ module\ reflection"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ sig.\mbox{\hyperlink{class_signal_a58e93a220b7a7f11e9f5eb8d427b7061}{print}}();}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmodule_reflection}{moduleReflection}}\ mod(sig,\ objects[\textcolor{keywordtype}{id}]);}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_signal}{Signal}}\ new\_sig\ =\ mod.\mbox{\hyperlink{classmodule_reflection_ae52d092bb55918d9fd01f70815277c27}{reflect}}();}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_signal}{Signal}}\ new\_reflect\_sig(new\_sig);}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ new\_reflect\_sig.\mbox{\hyperlink{class_signal_a11c0d0ebb43e2d07203634ca6fa18e17}{change\_src}}(objects[\textcolor{keywordtype}{id}].get\_pos());}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ new\_reflect\_sig.\mbox{\hyperlink{class_signal_a80a6f941cd08bc3914261aa6f575336d}{change\_dir}}(-\/1.f\ *\ new\_reflect\_sig.\mbox{\hyperlink{class_signal_a06364e424d9fda321c43f297b1b90f47}{get\_dir}}());}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ reflected\_signals\ =\ new\_sig.\mbox{\hyperlink{class_signal_a469f624929046d8a3ce674e7029a4d19}{generateSignals}}();}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ reflected\_signals.insert(reflected\_signals.end(),\ new\_reflect\_sig.\mbox{\hyperlink{class_signal_a469f624929046d8a3ce674e7029a4d19}{generateSignals}}().begin(),}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ new\_reflect\_sig.\mbox{\hyperlink{class_signal_a469f624929046d8a3ce674e7029a4d19}{generateSignals}}().end());}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ reflected\_signals;}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00086\ \ \ \ \ \}}
+\DoxyCodeLine{00087\ \};}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ RADAR2\_COLLISION\_DETECTOR\_H}}
+
+\end{DoxyCode}

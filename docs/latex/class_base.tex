@@ -1,0 +1,143 @@
+\doxysection{Base Class Reference}
+\hypertarget{class_base}{}\label{class_base}\index{Base@{Base}}
+
+
+Базовый класс для объектов.  
+
+
+
+
+{\ttfamily \#include $<$object.\+h$>$}
+
+Inheritance diagram for Base\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_base}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_base_a58887755525abd3f340963e2bbdcc972}\label{class_base_a58887755525abd3f340963e2bbdcc972} 
+{\bfseries Base} ()=default
+\begin{DoxyCompactList}\small\item\em Конструктор по умолчанию. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_base_afc5843d625347debe33a75706aaf8f4d}{Base}} (glm\+::vec3 p)
+\begin{DoxyCompactList}\small\item\em Конструктор с параметром позиции. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_base_aef0aaddcabd3c4724457bc5699252df3}{Base}} (\mbox{\hyperlink{class_base}{Base}} const \&b)
+\begin{DoxyCompactList}\small\item\em Конструктор копирования. \end{DoxyCompactList}\item 
+glm\+::vec3 \mbox{\hyperlink{class_base_a0255ff7ef08608e4959f44c47c6daa66}{get\+\_\+pos}} () const
+\begin{DoxyCompactList}\small\item\em Возвращает текущую позицию объекта. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_base_aacf86bd11cda7042b3e8b6e3957ac6e8}{get\+\_\+height}} ()
+\begin{DoxyCompactList}\small\item\em Возвращает высоту объекта над поверхностью Земли. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_base_a4d501375f13f379ba75823eea6c72af0}{set\+\_\+height}} (double new\+\_\+height)
+\begin{DoxyCompactList}\small\item\em Устанавливает новую высоту объекта над поверхностью Земли. \end{DoxyCompactList}\item 
+\Hypertarget{class_base_a61f923d663b1a2318819a3b1034f506f}\label{class_base_a61f923d663b1a2318819a3b1034f506f} 
+void {\bfseries print} () const
+\begin{DoxyCompactList}\small\item\em Выводит информацию о позиции объекта. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+glm\+::vec3 \mbox{\hyperlink{class_base_a96c4387664a53035eb4134fb5cc6a28d}{pos}} = \{0.\+0, 0.\+0, 0.\+0\}
+\item 
+double \mbox{\hyperlink{class_base_ad64ed3f2f8699176f8c31d9dad580b55}{radius}} = 10.\+0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Базовый класс для объектов. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_base_afc5843d625347debe33a75706aaf8f4d}\label{class_base_afc5843d625347debe33a75706aaf8f4d} 
+\index{Base@{Base}!Base@{Base}}
+\index{Base@{Base}!Base@{Base}}
+\doxysubsubsection{\texorpdfstring{Base()}{Base()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Base\+::\+Base (\begin{DoxyParamCaption}\item[{glm\+::vec3}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Конструктор с параметром позиции. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Позиция объекта. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_base_aef0aaddcabd3c4724457bc5699252df3}\label{class_base_aef0aaddcabd3c4724457bc5699252df3} 
+\index{Base@{Base}!Base@{Base}}
+\index{Base@{Base}!Base@{Base}}
+\doxysubsubsection{\texorpdfstring{Base()}{Base()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Base\+::\+Base (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_base}{Base}} const \&}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Конструктор копирования. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em b} & Объект для копирования. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_base_aacf86bd11cda7042b3e8b6e3957ac6e8}\label{class_base_aacf86bd11cda7042b3e8b6e3957ac6e8} 
+\index{Base@{Base}!get\_height@{get\_height}}
+\index{get\_height@{get\_height}!Base@{Base}}
+\doxysubsubsection{\texorpdfstring{get\_height()}{get\_height()}}
+{\footnotesize\ttfamily double Base\+::get\+\_\+height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Возвращает высоту объекта над поверхностью Земли. 
+
+\begin{DoxyReturn}{Returns}
+Высота объекта. 
+\end{DoxyReturn}
+\Hypertarget{class_base_a0255ff7ef08608e4959f44c47c6daa66}\label{class_base_a0255ff7ef08608e4959f44c47c6daa66} 
+\index{Base@{Base}!get\_pos@{get\_pos}}
+\index{get\_pos@{get\_pos}!Base@{Base}}
+\doxysubsubsection{\texorpdfstring{get\_pos()}{get\_pos()}}
+{\footnotesize\ttfamily glm\+::vec3 Base\+::get\+\_\+pos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Возвращает текущую позицию объекта. 
+
+\begin{DoxyReturn}{Returns}
+Позиция объекта. 
+\end{DoxyReturn}
+\Hypertarget{class_base_a4d501375f13f379ba75823eea6c72af0}\label{class_base_a4d501375f13f379ba75823eea6c72af0} 
+\index{Base@{Base}!set\_height@{set\_height}}
+\index{set\_height@{set\_height}!Base@{Base}}
+\doxysubsubsection{\texorpdfstring{set\_height()}{set\_height()}}
+{\footnotesize\ttfamily void Base\+::set\+\_\+height (\begin{DoxyParamCaption}\item[{double}]{new\+\_\+height }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Устанавливает новую высоту объекта над поверхностью Земли. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+height} & Новая высота объекта. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_base_a96c4387664a53035eb4134fb5cc6a28d}\label{class_base_a96c4387664a53035eb4134fb5cc6a28d} 
+\index{Base@{Base}!pos@{pos}}
+\index{pos@{pos}!Base@{Base}}
+\doxysubsubsection{\texorpdfstring{pos}{pos}}
+{\footnotesize\ttfamily glm\+::vec3 Base\+::pos = \{0.\+0, 0.\+0, 0.\+0\}\hspace{0.3cm}{\ttfamily [protected]}}
+
+Положение объекта \Hypertarget{class_base_ad64ed3f2f8699176f8c31d9dad580b55}\label{class_base_ad64ed3f2f8699176f8c31d9dad580b55} 
+\index{Base@{Base}!radius@{radius}}
+\index{radius@{radius}!Base@{Base}}
+\doxysubsubsection{\texorpdfstring{radius}{radius}}
+{\footnotesize\ttfamily double Base\+::radius = 10.\+0\hspace{0.3cm}{\ttfamily [protected]}}
+
+Радиус объекта по умолчанию 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+object.\+h\end{DoxyCompactItemize}

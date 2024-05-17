@@ -1,0 +1,62 @@
+\doxysection{object.\+h}
+\hypertarget{object_8h_source}{}\label{object_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ RADAR2\_OBJECT\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ RADAR2\_OBJECT\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <glm/glm.hpp>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}constants.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}signal.h"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_base}{Base}}\ \{}
+\DoxyCodeLine{00013\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00014\ \ \ \ \ glm::vec3\ \mbox{\hyperlink{class_base_a96c4387664a53035eb4134fb5cc6a28d}{pos}}\ =\ \{0.0,\ 0.0,\ 0.0\};\ }
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_base_ad64ed3f2f8699176f8c31d9dad580b55}{radius}}\ =\ 10.0;\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{class_base_a58887755525abd3f340963e2bbdcc972}{Base}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{class_base_afc5843d625347debe33a75706aaf8f4d}{Base}}(glm::vec3\ p)\ :\ \mbox{\hyperlink{class_base_a96c4387664a53035eb4134fb5cc6a28d}{pos}}\{p\}\ \{\}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{class_base_aef0aaddcabd3c4724457bc5699252df3}{Base}}(\mbox{\hyperlink{class_base}{Base}}\ \textcolor{keyword}{const}\ \&b)\ :\ \mbox{\hyperlink{class_base_a96c4387664a53035eb4134fb5cc6a28d}{pos}}\{b.\mbox{\hyperlink{class_base_a96c4387664a53035eb4134fb5cc6a28d}{pos}}\}\ \{\}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00038\ \ \ \ \ glm::vec3\ \mbox{\hyperlink{class_base_a0255ff7ef08608e4959f44c47c6daa66}{get\_pos}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_base_a96c4387664a53035eb4134fb5cc6a28d}{pos}};\ \}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_base_aacf86bd11cda7042b3e8b6e3957ac6e8}{get\_height}}()\ \{\ \textcolor{keywordflow}{return}\ glm::distance(\mbox{\hyperlink{class_base_a96c4387664a53035eb4134fb5cc6a28d}{pos}},\ e\_pos)\ -\/\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(e\_radius);\ \}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_base_a4d501375f13f379ba75823eea6c72af0}{set\_height}}(\textcolor{keywordtype}{double}\ new\_height)\ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_base_a96c4387664a53035eb4134fb5cc6a28d}{pos}}\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(e\_radius\ +\ new\_height)\ *\ glm::normalize(\mbox{\hyperlink{class_base_a96c4387664a53035eb4134fb5cc6a28d}{pos}}\ -\/\ e\_pos)\ +\ e\_pos;}
+\DoxyCodeLine{00052\ \ \ \ \ \}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_base_a61f923d663b1a2318819a3b1034f506f}{print}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}pos:\ \{\ "{}}\ <<\ \mbox{\hyperlink{class_base_a96c4387664a53035eb4134fb5cc6a28d}{pos}}.x\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ \mbox{\hyperlink{class_base_a96c4387664a53035eb4134fb5cc6a28d}{pos}}.y\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ \mbox{\hyperlink{class_base_a96c4387664a53035eb4134fb5cc6a28d}{pos}}.z\ <<\ \textcolor{stringliteral}{"{}\ \}"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00059\ \ \ \ \ \}}
+\DoxyCodeLine{00060\ \};}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00065\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_aircraft}{Aircraft}}\ :\ \mbox{\hyperlink{class_base}{Base}}\ \{}
+\DoxyCodeLine{00066\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00067\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_aircraft_a9b43a3bb1335d231765f113d354c00b5}{radius}}\ =\ 10.0;\ }
+\DoxyCodeLine{00074\ \ \ \ \ \mbox{\hyperlink{class_aircraft_aeb760b17667192fd641d87e14f16d25a}{Aircraft}}(\mbox{\hyperlink{class_aircraft}{Aircraft}}\ \textcolor{keyword}{const}\ \&a)\ :\ \mbox{\hyperlink{class_base}{Base}}(a)\ \{\}}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_base_a58887755525abd3f340963e2bbdcc972}{Base::Base}};}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_base_a0255ff7ef08608e4959f44c47c6daa66}{Base::get\_pos}},\ \mbox{\hyperlink{class_base_aacf86bd11cda7042b3e8b6e3957ac6e8}{Base::get\_height}},\ \mbox{\hyperlink{class_base_a4d501375f13f379ba75823eea6c72af0}{Base::set\_height}};}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_base_a61f923d663b1a2318819a3b1034f506f}{Base::print}};}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_aircraft_a781e34ca22442171bc0a77cb2af33341}{change\_rad}}(\textcolor{keywordtype}{float}\ new\_rad)\ \{}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_aircraft_a9b43a3bb1335d231765f113d354c00b5}{radius}}\ =\ new\_rad;}
+\DoxyCodeLine{00086\ \ \ \ \ \}}
+\DoxyCodeLine{00087\ \};}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00092\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_source}{Source}}\ :\ \mbox{\hyperlink{class_base}{Base}}\ \{\ \ \ \ \ \ \ \ \ \textcolor{comment}{//for\ Signal}}
+\DoxyCodeLine{00093\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00094\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_source_ae49f03b50bae2ab055eea88b4a8ee9fe}{radius}}\ =\ 10.0;\ }
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_base_a58887755525abd3f340963e2bbdcc972}{Base::Base}};}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_base_a0255ff7ef08608e4959f44c47c6daa66}{Base::get\_pos}},\ \mbox{\hyperlink{class_base_aacf86bd11cda7042b3e8b6e3957ac6e8}{Base::get\_height}},\ \mbox{\hyperlink{class_base_a4d501375f13f379ba75823eea6c72af0}{Base::set\_height}};}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_base_a61f923d663b1a2318819a3b1034f506f}{Base::print}};}
+\DoxyCodeLine{00100\ \};}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//RADAR2\_OBJECT\_H}}
+
+\end{DoxyCode}

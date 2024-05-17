@@ -1,0 +1,60 @@
+\doxysection{radar.\+h}
+\hypertarget{radar_8h_source}{}\label{radar_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ RADAR2\_RADAR\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ RADAR2\_RADAR\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <glm/glm.hpp>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}constants.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}object.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}signal.h"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_radar}{Radar}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_base}{Base}}\ \{}
+\DoxyCodeLine{00015\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{int}\ fineness\_of\_coating\ =\ 10;\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_radar_adf71997eab5aa347eb196fb80832c864}{radius}}\ =\ 100.0f;\ }
+\DoxyCodeLine{00019\ \ \ \ \ glm::vec3\ \mbox{\hyperlink{class_radar_a99051c4ef1f92d6c980a6072f74ffb0e}{dir}}\ =\ glm::normalize(glm::vec3\{1.0f,\ 1.0f,\ 0.0f\});\ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_base_a58887755525abd3f340963e2bbdcc972}{Base::Base}};}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_base_a0255ff7ef08608e4959f44c47c6daa66}{Base::get\_pos}};}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_base_aacf86bd11cda7042b3e8b6e3957ac6e8}{Base::get\_height}};}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_base_a4d501375f13f379ba75823eea6c72af0}{Base::set\_height}};}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_base_a61f923d663b1a2318819a3b1034f506f}{Base::print}};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_radar_a3a28471ac2b38c9c057ef0b842a66e7e}{change\_dir}}(\textcolor{keyword}{const}\ glm::vec3\ \&new\_dir)\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_radar_a99051c4ef1f92d6c980a6072f74ffb0e}{dir}}\ =\ glm::normalize(new\_dir);}
+\DoxyCodeLine{00033\ \ \ \ \ \}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00041\ \ \ \ \ std::vector<Signal>\ \mbox{\hyperlink{class_radar_a7ec572bd15cda617ee44626c1864ba86}{send\_signals}}(\textcolor{keywordtype}{double}\ phase,\ \textcolor{keywordtype}{double}\ power)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ std::vector<Signal>\ signals;}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ total\_power\_factor\ =\ 0;}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 1;\ j\ <=\ fineness\_of\_coating;\ ++j)\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ total\_power\_factor\ +=\ 2\ *\ j\ *\ j;}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ new\_power\ =\ power\ /\ total\_power\_factor;}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 1;\ j\ <=\ fineness\_of\_coating;\ ++j)\ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ rad\ =\ sin(j\ *\ pi\ /\ (2\ *\ fineness\_of\_coating));}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ y\ =\ cos(j\ *\ pi\ /\ (2\ *\ fineness\_of\_coating));}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ count\ =\ 2\ *\ j;}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ count;\ ++i)\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ angle\ =\ 2\ *\ pi\ /\ count\ *\ i;}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ x\ =\ cos(angle)\ *\ rad\ *\ sqrt(1\ -\/\ y\ *\ y);}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ z\ =\ sin(angle)\ *\ rad\ *\ sqrt(1\ -\/\ y\ *\ y);}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ glm::vec3\ signal\_direction\ =\ glm::normalize(\mbox{\hyperlink{class_radar_a99051c4ef1f92d6c980a6072f74ffb0e}{dir}}\ +\ glm::vec3(x,\ y,\ z));}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ signals.push\_back(\mbox{\hyperlink{class_signal}{Signal}}(phase,\ new\_power,\ \mbox{\hyperlink{class_radar_a0255ff7ef08608e4959f44c47c6daa66}{get\_pos}}()\ +\ glm::vec3(x,\ y,\ z),\ signal\_direction));}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ signals;}
+\DoxyCodeLine{00065\ \ \ \ \ \}}
+\DoxyCodeLine{00066\ \};}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ RADAR2\_RADAR\_H}}
+
+\end{DoxyCode}

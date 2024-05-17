@@ -1,0 +1,169 @@
+\doxysection{Aircraft Class Reference}
+\hypertarget{class_aircraft}{}\label{class_aircraft}\index{Aircraft@{Aircraft}}
+
+
+Класс, представляющий воздушное судно.  
+
+
+
+
+{\ttfamily \#include $<$object.\+h$>$}
+
+Inheritance diagram for Aircraft\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_aircraft}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_aircraft_aeb760b17667192fd641d87e14f16d25a}{Aircraft}} (\mbox{\hyperlink{class_aircraft}{Aircraft}} const \&a)
+\begin{DoxyCompactList}\small\item\em Конструктор копирования. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_aircraft_a781e34ca22442171bc0a77cb2af33341}{change\+\_\+rad}} (float new\+\_\+rad)
+\begin{DoxyCompactList}\small\item\em Изменяет радиус воздушного судна. \end{DoxyCompactList}\item 
+\Hypertarget{class_aircraft_a58887755525abd3f340963e2bbdcc972}\label{class_aircraft_a58887755525abd3f340963e2bbdcc972} 
+{\bfseries Base} ()=default
+\begin{DoxyCompactList}\small\item\em Конструктор по умолчанию. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_aircraft_afc5843d625347debe33a75706aaf8f4d}{Base}} (glm\+::vec3 p)
+\begin{DoxyCompactList}\small\item\em Конструктор с параметром позиции. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_aircraft_aef0aaddcabd3c4724457bc5699252df3}{Base}} (\mbox{\hyperlink{class_base}{Base}} const \&b)
+\begin{DoxyCompactList}\small\item\em Конструктор копирования. \end{DoxyCompactList}\item 
+glm\+::vec3 \mbox{\hyperlink{class_aircraft_a0255ff7ef08608e4959f44c47c6daa66}{get\+\_\+pos}} () const
+\begin{DoxyCompactList}\small\item\em Возвращает текущую позицию объекта. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_aircraft_aacf86bd11cda7042b3e8b6e3957ac6e8}{get\+\_\+height}} ()
+\begin{DoxyCompactList}\small\item\em Возвращает высоту объекта над поверхностью Земли. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_aircraft_a4d501375f13f379ba75823eea6c72af0}{set\+\_\+height}} (double new\+\_\+height)
+\begin{DoxyCompactList}\small\item\em Устанавливает новую высоту объекта над поверхностью Земли. \end{DoxyCompactList}\item 
+\Hypertarget{class_aircraft_a61f923d663b1a2318819a3b1034f506f}\label{class_aircraft_a61f923d663b1a2318819a3b1034f506f} 
+void {\bfseries print} () const
+\begin{DoxyCompactList}\small\item\em Выводит информацию о позиции объекта. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{class_aircraft_a9b43a3bb1335d231765f113d354c00b5}{radius}} = 10.\+0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Класс, представляющий воздушное судно. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_aircraft_aeb760b17667192fd641d87e14f16d25a}\label{class_aircraft_aeb760b17667192fd641d87e14f16d25a} 
+\index{Aircraft@{Aircraft}!Aircraft@{Aircraft}}
+\index{Aircraft@{Aircraft}!Aircraft@{Aircraft}}
+\doxysubsubsection{\texorpdfstring{Aircraft()}{Aircraft()}}
+{\footnotesize\ttfamily Aircraft\+::\+Aircraft (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_aircraft}{Aircraft}} const \&}]{a }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Конструктор копирования. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Объект для копирования. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_aircraft_aef0aaddcabd3c4724457bc5699252df3}\label{class_aircraft_aef0aaddcabd3c4724457bc5699252df3} 
+\index{Aircraft@{Aircraft}!Base@{Base}}
+\index{Base@{Base}!Aircraft@{Aircraft}}
+\doxysubsubsection{\texorpdfstring{Base()}{Base()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Base\+::\+Base (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_base}{Base}} const \&}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Конструктор копирования. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em b} & Объект для копирования. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_aircraft_afc5843d625347debe33a75706aaf8f4d}\label{class_aircraft_afc5843d625347debe33a75706aaf8f4d} 
+\index{Aircraft@{Aircraft}!Base@{Base}}
+\index{Base@{Base}!Aircraft@{Aircraft}}
+\doxysubsubsection{\texorpdfstring{Base()}{Base()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Base\+::\+Base (\begin{DoxyParamCaption}\item[{glm\+::vec3}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Конструктор с параметром позиции. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Позиция объекта. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_aircraft_a781e34ca22442171bc0a77cb2af33341}\label{class_aircraft_a781e34ca22442171bc0a77cb2af33341} 
+\index{Aircraft@{Aircraft}!change\_rad@{change\_rad}}
+\index{change\_rad@{change\_rad}!Aircraft@{Aircraft}}
+\doxysubsubsection{\texorpdfstring{change\_rad()}{change\_rad()}}
+{\footnotesize\ttfamily void Aircraft\+::change\+\_\+rad (\begin{DoxyParamCaption}\item[{float}]{new\+\_\+rad }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Изменяет радиус воздушного судна. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+rad} & Новый радиус. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_aircraft_aacf86bd11cda7042b3e8b6e3957ac6e8}\label{class_aircraft_aacf86bd11cda7042b3e8b6e3957ac6e8} 
+\index{Aircraft@{Aircraft}!get\_height@{get\_height}}
+\index{get\_height@{get\_height}!Aircraft@{Aircraft}}
+\doxysubsubsection{\texorpdfstring{get\_height()}{get\_height()}}
+{\footnotesize\ttfamily double Base\+::get\+\_\+height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Возвращает высоту объекта над поверхностью Земли. 
+
+\begin{DoxyReturn}{Returns}
+Высота объекта. 
+\end{DoxyReturn}
+\Hypertarget{class_aircraft_a0255ff7ef08608e4959f44c47c6daa66}\label{class_aircraft_a0255ff7ef08608e4959f44c47c6daa66} 
+\index{Aircraft@{Aircraft}!get\_pos@{get\_pos}}
+\index{get\_pos@{get\_pos}!Aircraft@{Aircraft}}
+\doxysubsubsection{\texorpdfstring{get\_pos()}{get\_pos()}}
+{\footnotesize\ttfamily glm\+::vec3 Base\+::get\+\_\+pos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Возвращает текущую позицию объекта. 
+
+\begin{DoxyReturn}{Returns}
+Позиция объекта. 
+\end{DoxyReturn}
+\Hypertarget{class_aircraft_a4d501375f13f379ba75823eea6c72af0}\label{class_aircraft_a4d501375f13f379ba75823eea6c72af0} 
+\index{Aircraft@{Aircraft}!set\_height@{set\_height}}
+\index{set\_height@{set\_height}!Aircraft@{Aircraft}}
+\doxysubsubsection{\texorpdfstring{set\_height()}{set\_height()}}
+{\footnotesize\ttfamily void Base\+::set\+\_\+height (\begin{DoxyParamCaption}\item[{double}]{new\+\_\+height }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Устанавливает новую высоту объекта над поверхностью Земли. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+height} & Новая высота объекта. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_aircraft_a9b43a3bb1335d231765f113d354c00b5}\label{class_aircraft_a9b43a3bb1335d231765f113d354c00b5} 
+\index{Aircraft@{Aircraft}!radius@{radius}}
+\index{radius@{radius}!Aircraft@{Aircraft}}
+\doxysubsubsection{\texorpdfstring{radius}{radius}}
+{\footnotesize\ttfamily float Aircraft\+::radius = 10.\+0}
+
+Радиус воздушного судна по умолчанию 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+object.\+h\end{DoxyCompactItemize}
